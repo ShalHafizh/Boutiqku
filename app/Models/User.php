@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    protected $table = 'table_user';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function Pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class,'id_user','id');
+    }
+
+    public function Role()
+    {
+        return $this->belongsTo(Role::class,'id_role','id');
+    }
+
+    public function Kota()
+    {
+        return $this->belongsTo(Kota::class,'id_kota','id');
+    }
+
+    public function Penerimaan()
+    {
+        return $this->hasMany(Penerimaan::class,'id_user','id');
+    }
+    public function hasRole($role) 
+    {
+        return $this->role()->where('nama_user', $role)->count() == 1;
+    }
+}
+ 
