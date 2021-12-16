@@ -17,7 +17,22 @@ class LoginController extends Controller
     {
         // $user = User::all();
         $item = session::truncate();
-        return view('auth.login');
+        $pesan = "Masukkan Username dan Password anda";
+        return view('auth.login', 
+        [
+            'pesan' => $pesan
+        ]);
+        // return view('login',['user'=>$user]);
+    }
+
+    public function index1()
+    {
+        // $user = User::all();
+        $item = session::truncate();
+        $pesan = "Username atau Password anda salah!!!";
+        return view('auth.login', 
+        [
+            'pesan'=>$pesan]);
         // return view('login',['user'=>$user]);
     }
 
@@ -36,7 +51,7 @@ class LoginController extends Controller
             // echo $username;
             // echo $password;
             // echo $role1;
-            if($username != $password ){return redirect('/login');}
+            if($username != $password ){return redirect('/relog');}
             else
             {
                 if ($role1==$username) 
@@ -60,7 +75,7 @@ class LoginController extends Controller
             }
             return redirect('Home');
         }
-        else{return redirect('/login');}
+        else{return redirect('/relog');}
 
     }
 
@@ -87,7 +102,7 @@ class LoginController extends Controller
             $session->save();
             return redirect('Home');
         }
-        else{return redirect('/login');}
+        else{return redirect('/relog');}
 
     }
 
