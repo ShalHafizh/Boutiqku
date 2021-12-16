@@ -15,6 +15,7 @@ use App\Http\Controllers\ControllerPWBF2;
 |
 */
 Route::get('/', [ControllerPWBF2::class, 'beranda']);
+Route::get('/beranda2', [ControllerPWBF2::class, 'beranda2']);
 
 //login
 Route::get('/login', [LoginController::class, 'index']);

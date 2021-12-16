@@ -14,6 +14,13 @@ class ControllerPWBF2 extends Controller
         ]);
     }
 
+    public function beranda2()
+    { 
+        return view('beranda2', [
+            "title" => "Beranda"
+        ]);
+    }
+
     public function produk()
     {
         return view('produk', [
