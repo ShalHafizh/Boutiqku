@@ -3,8 +3,8 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 mb-2">Tabel Pemesanan</h1>
-        <a href="{{ url('/input-Pemesanan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br>
+        <h1 class="mt-4 mb-2">Pemesanan</h1>
+        <a href="{{ url('/input-Pemesanan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Pesanan</button></a><br>
         
         <br>
         <div class="card mb-4">

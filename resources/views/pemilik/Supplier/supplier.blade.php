@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 mb-2">Tabel Supplier</h1>
+        <h1 class="mt-4 mb-2">Supplier</h1>
         <a href="{{ url('/input-Supplier') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
         <br>
         <div class="card mb-4">

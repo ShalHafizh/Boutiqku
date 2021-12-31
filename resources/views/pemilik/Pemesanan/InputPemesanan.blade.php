@@ -10,7 +10,7 @@
 			<div class="content">
 				<input hidden name='status_pesan' value="0">
 				<div class="row mb-3">
-					<label for="inputJenisBarang" class="col-sm-2 col-form-label">User</label>
+					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Nama User</label>
 					<div class="col-sm-4">
 						<!-- @foreach($session as $item)
 						<p>{{ $item->name }}</p>
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-			<input type = 'submit' class = 'btn btn-primary' value = "Tambahkan"/>	
+			<input type = 'submit' class = 'btn btn-primary' value = "Pesan"/>	
 		</form>
 	</div>
 

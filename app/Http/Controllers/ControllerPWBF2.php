@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 
 class ControllerPWBF2 extends Controller
 {
@@ -23,9 +22,10 @@ class ControllerPWBF2 extends Controller
 
     public function produk()
     {
-        return view('produk', [
+        return view('layout.layoutpegawai', [
             "title" => "Pengadaan Barang"
         ]);
+      
     }
 
     public function about()

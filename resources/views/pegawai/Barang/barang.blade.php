@@ -21,13 +21,13 @@
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
                             <th>Jenis</th>
-                            <th>Lapor</th>
+                            <th>Gambar</th>
                             <th>Edit</th>
                             <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                         @foreach($table_barang as $item)
+                        @foreach($table_barang as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->nama_bar }}</td>
@@ -35,9 +35,7 @@
                             <td>{{ $item->harga_beli_bar }}</td>
                             <td>{{ $item->harga_jual_bar }}</td>
                             <td>{{ $item->jenisBarang->jenis_barang }}</td>
-                            <td>
-                              <button class="btn btn-primary btn-sm">Pesan</button>
-                            </td>
+                            <td><img src="uploads/{{ $item->foto }}" style="width: 100px;"></td>
                             <td>
                             <form action="{{ url('/edit-Barang') }}" method="get">
                                 <input hidden value="{{ $item->id }}" name="id">
@@ -54,7 +52,7 @@
                                 <a href="{{ url('/destroy-Barang',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                             </td> 
                         </tr>
-                            @endforeach
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

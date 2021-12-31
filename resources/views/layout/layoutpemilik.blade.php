@@ -32,10 +32,8 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/beranda2">Beranda</a>
+                <a class="nav-link" aria-current="page" href="/beranda2">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Home">Dashboard</a>
             </ul>
             <!-- Navbar Search-->
             <li class="nav-item" style="text-align: center;color:rgb(250, 245, 245)">
@@ -83,11 +81,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('/Supplier') }}">Data Supplier</a>
                                     <a class="nav-link" href="{{ url('/Home') }}">Data Barang</a>
-                                    <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
-                                    <a class="nav-link" href="{{ url('/Kota') }}">Kota</a>
-                                    {{-- <a class="nav-link" href="{{ url('/Role') }}">Role User</a> --}}
                                     <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
                                     <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
                                 </nav>

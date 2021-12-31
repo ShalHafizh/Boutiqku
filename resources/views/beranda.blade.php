@@ -23,6 +23,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="icon" href="http://laravel.pixelstrap.com/endless/assets/images/favicon.png" type="image/x-icon">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">

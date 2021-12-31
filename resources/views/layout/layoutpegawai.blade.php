@@ -19,7 +19,7 @@
 
 
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
             <!-- Navbar Brand-->
             <div class="container-fluid">
             <a class="navbar-brand" href="/">Pegawai</a>
@@ -32,20 +32,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/beranda2">Beranda</a>
+                <a class="nav-link" aria-current="page" href="/beranda2">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Home">Dashboard</a></li>
                 
             </ul>
             <!-- Navbar Search-->
             <li class="nav-item" style="text-align: center;color:rgb(250, 245, 245)">
                 <h4>Anda Masuk Menggunakan Akun Pegawai</h4></li>
 
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" action="/Home">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <input class="form-control" name="search" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary"  type="submit"><i class="fas fa-search"></i></button>
                 </div>
             </form>
 
@@ -85,11 +83,11 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('/Supplier') }}">Data Supplier</a>
                                     <a class="nav-link" href="{{ url('/Home') }}">Data Barang</a>
                                     <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
-                                    <a class="nav-link" href="{{ url('/Kota') }}">Kota</a>
+                                    <a class="nav-link" href="{{ url('/Kota') }}">Data Kota</a>
                                     {{-- <a class="nav-link" href="{{ url('/Role') }}">Role User</a> --}}
+                                    <a class="nav-link" href="{{ url('/Supplier') }}">Data Supplier</a>
                                     <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
                                     <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
                                 </nav>
