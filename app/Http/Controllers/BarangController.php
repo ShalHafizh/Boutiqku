@@ -53,7 +53,7 @@ class BarangController extends Controller
         if($auth==$z){return redirect('/login');}
         
         $table_jenis_barang = jenisBarang::all();
-        return view('pegawai.barang.insert_barang', [
+        return view('pemilik.barang.insert_barang', [
             'title' => 'Tambah Data Barang',
             'table_jenis_barang' => $table_jenis_barang
         ]);
@@ -102,7 +102,7 @@ class BarangController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai.barang.edit_barang', [
+        return view('pemilik.barang.edit_barang', [
             'title' => 'Edit Data Barang',
             'a'=>$a,
             'request'=>$request]);

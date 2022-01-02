@@ -30,7 +30,7 @@ class PembayaranController extends Controller
          }
         else
          {
-            return view('pegawai.Pembayaran.pembayaran', [
+            return view('pegawai.pembayaran.pembayaran', [
                 'title'=>'Pembayaran',
                 'data'=>$data
             ]);
@@ -50,7 +50,7 @@ class PembayaranController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai.Pembayaran.insertPembayaran',[
+        return view('pegawai.pembayaran.insertPembayaran',[
             'title'=>'Tambah Data Pembayaran',
             'Penerimaan'=>$Penerimaan
         ]);

@@ -22,7 +22,6 @@
                             <th>Harga Jual</th>
                             <th>Jenis</th>
                             <th>Gambar</th>
-                            <th>Pemesanan</th>
                             <th>Edit</th>
                             <th>Delete</th>
                             </tr>
@@ -37,10 +36,7 @@
                             <td>{{ $item->harga_jual_bar }}</td>
                             <td>{{ $item->jenisBarang->jenis_barang }}</td>
                             <td><img src="uploads/{{ $item->foto }}" style="width: 100px;"></td>
-                            <td>
-                                <form action="{{ url('/input-Pemesanan') }}" >
-                                <button class="btn btn-primary btn-sm">Pesan</button>
-                              </td>
+                            
                             <td>
                             <form action="{{ url('/edit-Barang') }}" method="get">
                                 <input hidden value="{{ $item->id }}" name="id">

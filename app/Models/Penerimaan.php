@@ -9,6 +9,7 @@ class Penerimaan extends Model
 {
     use HasFactory;
     protected $table = 'table_penerimaan';
+    protected $fillable = ['id','id_user','id_sup','total_harga','status_terima'];
 
     public function Pembayaran()
     {
@@ -28,5 +29,10 @@ class Penerimaan extends Model
     public function Supplier()
     {
         return $this->belongsTo(Supplier::class,'id_sup','id');
+    }
+
+    public function Pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class,'id_pemesanan','id');
     }
 }

@@ -4,7 +4,6 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4 mb-2">Barang</h1>
-            <a href="{{ url('/input-Barang') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
             <br>
             <div class="card mb-4">
                 <div class="card-header">
@@ -22,8 +21,7 @@
                             <th>Harga Jual</th>
                             <th>Jenis</th>
                             <th>Gambar</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Pemesanan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,20 +35,9 @@
                             <td>{{ $item->jenisBarang->jenis_barang }}</td>
                             <td><img src="uploads/{{ $item->foto }}" style="width: 100px;"></td>
                             <td>
-                            <form action="{{ url('/edit-Barang') }}" method="get">
-                                <input hidden value="{{ $item->id }}" name="id">
-                                <input hidden value="{{ $item->nama_bar }}" name="nama_bar">
-                                <input hidden value="{{ $item->stock_barang }}" name="stock_barang">
-                                <input hidden value="{{ $item->harga_beli_bar }}" name="harga_beli_bar">
-                                <input hidden value="{{ $item->harga_jual_bar }}" name="harga_jual_bar">
-                                <button type="submit" class="btn btn-info btn-sm")>edit</button>
-                            </form>
-                            </td>
-                            @csrf
-                            @method('Delete')
-                            <td>
-                                <a href="{{ url('/destroy-Barang',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
-                            </td> 
+                                <form action="{{ url('/input-Pemesanan') }}" >
+                                <button class="btn btn-primary btn-sm">Pesan</button>
+                              </td>
                         </tr>
                         @endforeach
                         </tbody>

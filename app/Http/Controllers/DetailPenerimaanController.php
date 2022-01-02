@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\detailPenerimaan;
+use App\Models\modelbarang;
+use App\Models\Penerimaan;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -13,30 +15,44 @@ class DetailPenerimaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
-        $data           = detailPenerimaan::all();
+        $data           = detailPenerimaan::all()->where('id_terima',$request['id']);
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.detailpenerimaan.detailpenerimaan', ['data'=>$data]);
+            return view('pemilik.detailpenerimaan.detailpenerimaan', [
+                'data'=>$data,
+                'title'=>'Detail Penerimaan',
+                'request'=>$request
+            ]);
          }
         else
          {
-            return view('pegawai.detailpenerimaan.datailpenerimaan', ['data'=>$data]);
+            return view('pegawai.detailpenerimaan.detailpenerimaan', [
+                'data'=>$data,
+                'title'=>'Detail Penerimaan',
+                'request'=>$request
+            ]);
          }
     }
 
-    public function insert()
+    public function insert(request $request)
     {
+        $table_barang = modelbarang::all();
+        $table_penerimaan = Penerimaan::all();
+
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         return view('pegawai.detailpenerimaan.insert_detailpenerimaan', [
-            'title' => 'Tambah Data Barang'
+            'title' => 'Tambah Data Barang',
+            'table_barang'=>$table_barang,
+            'table_penerimaan'=>$table_penerimaan,
+            'request'=>$request
         ]);
     }
 
@@ -46,14 +62,14 @@ class DetailPenerimaanController extends Controller
         $item = new detailPenerimaan;// table
         
         //value
-        $item->nama_bar       = $data['nama_bar'];
-        $item->stock_barang   = $data['stock_barang'];
-        $item->harga_beli_bar = $data['harga_beli_bar'];
-        $item->harga_jual_bar = $data['harga_jual_bar'];
-        $item->id_jb          = $data['id_jb'];
+        $item->harga_his    = $data['harga_his'];
+        $item->jumlah_his   = $data['jumlah_his'];
+        $item->sub_total    = $data['sub_total'];
+        $item->kode_bar     = $data['nama_bar'];        
+
         $item->save();//tombol run sqlyog
 
-        return redirect('/Home');
+        return redirect('/Penerimaan');
             
     }
 
@@ -68,9 +84,21 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(detailPenerimaan $detailPenerimaan)
+    public function edit(Request $request)
     {
-        //
+        $table_penerimaan   = Penerimaan::all();
+        $table_barang = modelbarang::all();
+
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        
+        return view('pegawai.detailPenerimaan.edit_detPenerimaan', [
+            'title' => 'Edit Detail Penerimaan',
+            'table_penerimaan'=>$table_penerimaan,
+            'table_barang' =>$table_barang,
+            'request'=>$request
+        ]);
     }
 
     /**
@@ -80,9 +108,18 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detailPenerimaan $detailPenerimaan)
+    public function update(Request $request, $id)
     {
-        //
+        $item = detailPenerimaan::find($id);
+        
+        $item->harga_his    = $request->input('harga_his');
+        $item->jumlah_his   = $request->input('jumlah_his');
+        $item->sub_total    = $request->input('sub_total');
+        $item->kode_bar     = $request->input('nama_bar');
+        $item->id_terima    = $request->input('id_terima');
+        $item->save();
+        
+        return redirect('/Penerimaan');
     }
 
     /**
@@ -91,8 +128,10 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detailPenerimaan $detailPenerimaan)
+    public function destroy($id)
     {
-        //
+        $item = detailPenerimaan::find($id);
+        $item->delete();
+        return redirect('/Penerimaan');
     }
 }

@@ -58,7 +58,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/supplier/tambah', [
+        return view('pemilik/supplier/tambah', [
             'title' => 'Tambah Data Supplier',
             'kota' => $kota
         ]);
@@ -109,7 +109,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/supplier/edit', [
+        return view('pemilik/supplier/edit', [
             'title' => 'Edit Data Supplier',
             'Supplier' => $supplier,
             'Kota' => $kota

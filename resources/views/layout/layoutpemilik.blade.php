@@ -19,7 +19,7 @@
 
 
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
             <!-- Navbar Brand-->
             <div class="container-fluid">
             <a class="navbar-brand" href="/">Owner</a>
@@ -51,7 +51,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Setting Profile</a></li>
                         <li><a class="dropdown-item" href="{{ url('/User') }}">Users</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
@@ -82,6 +81,10 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ url('/Home') }}">Data Barang</a>
+                                    <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
+                                    <a class="nav-link" href="{{ url('/Kota') }}">Data Kota</a>
+                                    {{-- <a class="nav-link" href="{{ url('/Role') }}">Role User</a> --}}
+                                    <a class="nav-link" href="{{ url('/Supplier') }}">Data Supplier</a>
                                     <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
                                     <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
                                 </nav>

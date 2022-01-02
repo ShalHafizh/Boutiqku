@@ -45,6 +45,7 @@
 				</div>
 				<div class="row mb-3">
 					<label for="formFile" class="form-label">Upload Gambar</label>
+					<div class="col-sm-4">
 					<input class="form-control" type="file" name="foto">
 					</div>
 				</div>
